@@ -7,6 +7,13 @@ class User(AbstractUser):
     email = models.EmailField(
         unique=True, verbose_name="Email", help_text="Укажите email"
     )
+    name = models.CharField(
+        max_length=50,
+        verbose_name="Имя",
+        help_text="Укажите имя",
+        null=True,
+        blank=True,
+    )
     avatar = models.ImageField(
         upload_to="users/avatars",
         verbose_name="Аватар",

@@ -51,7 +51,8 @@ class Habit(models.Model):
         blank=True,
     )
     lead_time = models.IntegerField(
-        verbose_name="Время на выполнение", help_text="Укажите время на выполнение"
+        verbose_name="Время на выполнение",
+        help_text="Укажите время на выполнение"
     )
     is_public = models.BooleanField(
         default=False,
