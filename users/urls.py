@@ -11,7 +11,7 @@ router = SimpleRouter()
 
 urlpatterns = [
     path(
-        "token/",
+        "login/",
         TokenObtainPairView.as_view(permission_classes=(AllowAny,)),
         name="login",
     ),
