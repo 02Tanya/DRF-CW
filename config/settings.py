@@ -23,8 +23,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "django_celery_beat",
+    "corsheaders",
     "users",
     "habits",
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [
@@ -35,6 +38,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -139,3 +143,13 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 #         'task': 'materials.tasks.blocks_the_user',
 #         'schedule': timedelta(days=1),
 #     }
+CORS_ALLOWED_ORIGINS = [
+    "https://read-only.example.com",
+    "https://read-and-write.example.com",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://read-and-write.example.com"
+]
+
+CORS_ALLOW_ALL_ORIGINS = False
