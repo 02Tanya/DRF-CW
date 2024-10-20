@@ -12,7 +12,8 @@ class LeadTimeValidator:
     def __call__(self, value):
         tmp_val = dict(value).get(self.field)
         if tmp_val > 120:
-            raise ValidationError("Время выполнения привычки - не более 120 сек.")
+            raise ValidationError(
+                "Время выполнения привычки - не более 120 сек.")
 
 
 class PeriodicityValidator:
@@ -45,7 +46,8 @@ class AssociatedHabitOrRewardValidator:
 
 
 class PleasurableHabitValidator:
-    """Проверяет, что у приятной привычки не назначено вознаграждение или связанная привычка"""
+    """Проверяет, что у приятной привычки не
+    назначено вознаграждение или связанная привычка"""
 
     def __init__(self, field):
         self.field = field
@@ -55,7 +57,8 @@ class PleasurableHabitValidator:
         tmp_val = dict(value).get(self.field)
         if is_pleasurable and tmp_val is not None:
             raise ValidationError(
-                "Нельзя назначать вознаграждение или связанную привычку для приятной привычки"
+                "Нельзя назначать вознаграждение или "
+                "связанную привычку для приятной привычки"
             )
 
 
@@ -71,4 +74,5 @@ class AssociatedHabitIsPleasurableHabitValidator:
             habit = Habit.objects.get(pk=associated_habit.pk)
 
             if not habit.is_pleasurable:
-                raise ValidationError("Связанная привычка должна быть приятной")
+                raise ValidationError(
+                    "Связанная привычка должна быть приятной")

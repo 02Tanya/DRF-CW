@@ -31,7 +31,8 @@ class HabitSerializer(serializers.ModelSerializer):
             AssociatedHabitOrRewardValidator(field="reward"),
             PleasurableHabitValidator(field="associated_habit"),
             PleasurableHabitValidator(field="reward"),
-            AssociatedHabitIsPleasurableHabitValidator(field="associated_habit"),
+            AssociatedHabitIsPleasurableHabitValidator(
+                field="associated_habit"),
         ]
 
 
